@@ -101,6 +101,12 @@ def remove_func():
 def get_viewport_params():
     input_window = tk.Toplevel()
     input_window.geometry("200x250")
+    
+    #Scatter vs Line
+    scatterButton = tk.Checkbutton(input_window, background="white", highlightthickness=0, border=0, text = "Scatter Plot",
+                        variable = isViewportScatter,  activeforeground="pink", activebackground="lightgray",
+                        onvalue = 1, offvalue = 0, height = 1, width = 10, command=show_funcs) 
+    scatterButton.pack(padx=0, pady=0, side=tk.TOP)
 
     entry_label = tk.Label(input_window, text="Cartesian Plane Limits (float)", font=("Arial", "8", "bold"))
     entry_label.pack()
@@ -274,14 +280,6 @@ spaceButton = tk.Button(actionbar_rect, text="~", width=2, background="lightgray
                 highlightthickness=0, border=0, activeforeground="pink", activebackground="lightgray",
                 font=('Arial', 16, "bold"), foreground="white", command=get_viewport_params)
 spaceButton.pack(pady=0, padx=5)
-#Scatter vs Line
-scatterImage = tk.PhotoImage(width=2, height=2)
-scatterImage.put(("pink",), to=(0, 0, 2, 2))
-scatterButton = tk.Checkbutton(actionbar_rect, background="lightgray", highlightthickness=0, border=0,
-                    variable = isViewportScatter,  activeforeground="pink", activebackground="lightgray",
-                    onvalue = 1, offvalue = 0, height = 2, width = 2,
-                    selectimage=scatterImage, command=show_funcs) 
-scatterButton.pack(padx=0, pady=0)
 
 clearButton = tk.Button(actionbar_rect, text="×", width=2, background="lightgray", 
                 highlightthickness=0, border=0, activeforeground="red", activebackground="lightgray",
